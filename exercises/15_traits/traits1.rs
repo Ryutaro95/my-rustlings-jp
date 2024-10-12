@@ -4,8 +4,12 @@ trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
+// String型に対してAppendBarを実装する
 impl AppendBar for String {
     // TODO:`AppendBar`トレイトを`String`型に移植してください。
+    fn append_bar(self) -> Self {
+        format!("{}Bar", self)
+    }
 }
 
 fn main() {

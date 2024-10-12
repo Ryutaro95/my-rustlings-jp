@@ -5,7 +5,9 @@ trait Licensed {
     // これにより下記に記す二つの構造体のような移植が関数を繰り返すことなくデフォルトの振る舞いとしてシェアできるようになります。
     // デフォルトのライセンス情報は"Default license"という文字列としてください。
 
-    fn licensing_info(&self) -> String;
+    fn licensing_info(&self) -> String {
+        "Default license".to_string()
+    }
 }
 
 struct SomeSoftware {
