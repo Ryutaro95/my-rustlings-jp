@@ -10,7 +10,7 @@ mod tests {
         let optional_target = Some(target);
 
         // TODO:Option型のSomeを値としてもつ`if-let`の構文を作成してください。
-        word = optional_target {
+        if let Some(word) = optional_target {
             assert_eq!(word, target);
         }
     }
@@ -29,9 +29,11 @@ mod tests {
         // TODO: `while-let`構文に変更してください。
         // また`Vec::pop()`がOption型を返すことを覚えておいてください。
         // `if-let`や`while-let`でも入れ子になったパターンのマッチングを行うことができます。
-        integer = optional_integers.pop() {
-            assert_eq!(integer, cursor);
-            cursor -= 1;
+        while let Some(integer) = optional_integers.pop() {
+            if let Some(i) = integer {
+                assert_eq!(i, cursor);
+                cursor -= 1;
+            }
         }
 
         assert_eq!(cursor, 0);
