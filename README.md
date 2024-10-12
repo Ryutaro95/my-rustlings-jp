@@ -7,7 +7,3 @@ Start command
 ```
 $ rustlings
 ```
-
-```
-
-```
