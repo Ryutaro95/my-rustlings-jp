@@ -6,7 +6,7 @@ fn capitalize_first(input: &str) -> String {
     let mut chars = input.chars();
     match chars.next() {
         None => String::new(),
-        Some(first) => todo!(),
+        Some(first) => format!("{}{}", first.to_uppercase(), chars.collect::<String>()),
     }
 }
 
@@ -14,7 +14,7 @@ fn capitalize_first(input: &str) -> String {
 // 返り値は文字列の配列を返してください。
 // ["hello", "world"]が入力された場合に["Hello", "World"]を返します。
 fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
-    // ???
+    words.iter().map(|word| capitalize_first(word)).collect()
 }
 
 // TODO: `capitalize_first`関数をスライスの文字列に対して実行する関数を書いてください。
@@ -22,10 +22,14 @@ fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 // ["hello", " ", "world"] -> "Hello World"
 fn capitalize_words_string(words: &[&str]) -> String {
     // ???
+    words
+        .iter()
+        .map(|word| capitalize_first(word))
+        .collect::<String>()
 }
 
 fn main() {
-   // この行で関数のテストができます。 
+    // この行で関数のテストができます。
 }
 
 #[cfg(test)]
