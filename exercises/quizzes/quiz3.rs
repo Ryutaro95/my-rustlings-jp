@@ -6,16 +6,17 @@
 // 最近までシステムは成績表の評価を数値(e.g. 1.0 -> 5.5)で表現していたが、アルファベット(A+ -> F-)でも成績を印刷できるようにしたい。
 
 // `ReportCard`構造体で必要な変更を行い、impl句で数値での成績に加えて、アルファベットもサポートするように修正してください。
+use std::fmt::Display;
 
 // TODO: 仕様に合うように構造体を変更してください。
-struct ReportCard {
-    grade: f32,
+struct ReportCard<T> {
+    grade: T,
     student_name: String,
     student_age: u8,
 }
 
 // TODO: 仕様に合うようにimpl内を変更してください。
-impl ReportCard {
+impl<T: Display> ReportCard<T> {
     fn print(&self) -> String {
         format!(
             "{} ({}) - achieved a grade of {}",

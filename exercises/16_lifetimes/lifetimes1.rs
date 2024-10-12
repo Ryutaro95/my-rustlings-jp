@@ -4,7 +4,7 @@
 // 所有権がどのようにしてスコープから外れたらどうなるのでしょう？
 
 // TODO: 関数の入出力を更新することでコンパイルエラーを修正してください。
-fn longest(x: &str, y: &str) -> &str {
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
         x
     } else {
