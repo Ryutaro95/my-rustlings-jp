@@ -4,7 +4,7 @@ fn power_of_2(n: u8) -> u64 {
 }
 
 fn main() {
-  // この行で関数のテストができます。
+    // この行で関数のテストができます。
 }
 
 #[cfg(test)]
@@ -14,9 +14,9 @@ mod tests {
     #[test]
     fn you_can_assert_eq() {
         // TODO: `power_of_2`に値を入れてテストしてみてください。
-        assert_eq!();
-        assert_eq!();
-        assert_eq!();
-        assert_eq!();
+        assert_eq!(power_of_2(2), 4);
+        assert_eq!(power_of_2(4), 16);
+        assert_eq!(power_of_2(8), 256);
+        assert_eq!(power_of_2(16), 65536);
     }
 }
