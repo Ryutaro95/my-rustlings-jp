@@ -1,3 +1,5 @@
+use std::cmp;
+
 #[derive(PartialEq, Debug)]
 enum CreationError {
     Negative,
@@ -10,7 +12,21 @@ struct PositiveNonzeroInteger(u64);
 impl PositiveNonzeroInteger {
     fn new(value: i64) -> Result<Self, CreationError> {
         // TODO: この関数はいつも`Ok`を返すべきではない。
-        Ok(Self(value as u64))
+
+        // other answer
+        // if value.is_positive() {
+        //     Ok(Self(value as u64))
+        // } else if value.is_negative() {
+        //     Err(CreationError::Negative)
+        // } else {
+        //     Err(CreationError::Zero)
+        // }
+
+        match value.cmp(&0) {
+            cmp::Ordering::Less => Err(CreationError::Negative),
+            cmp::Ordering::Equal => Err(CreationError::Zero),
+            cmp::Ordering::Greater => Ok(Self(value as u64)),
+        }
     }
 }
 
